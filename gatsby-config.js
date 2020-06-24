@@ -13,7 +13,16 @@ module.exports = {
       resolve: "gatsby-plugin-tinacms",
       options: {
         plugins: [
-          "gatsby-tinacms-git",
+          {
+            resolve: "gatsby-tinacms-git",
+            options: {
+              gitRemote:
+                "git@github.com:Integral-Stack/tinacms-cloud-editor-tutorial.git",
+              defaultCommitMessage: "Edited with TinaCMS",
+              defaultCommitName: "Cloud Editor",
+              defaultCommitEmail: "cloud-editor@integralstack.io",
+            },
+          },
           "gatsby-tinacms-remark",
           "gatsby-tinacms-json",
         ],
