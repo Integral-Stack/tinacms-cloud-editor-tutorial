@@ -1,21 +1,25 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
-    author: `Kyle Mathews`,
-    description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://gatsby-starter-tinacms-demo.netlify.com/`,
+    title: `TinaCMS Cloud Editor Tutorial`,
+    author: `Señor Sean`,
+    description: `A starter blog demonstrating TinaCMS.`,
+    siteUrl: `https://seanmichael.me/`,
     social: {
-      twitter: `kylemathews`,
+      twitter: `seansean11`,
     },
   },
   plugins: [
     {
       resolve: "gatsby-plugin-tinacms",
       options: {
-        plugins: ["gatsby-tinacms-git", "gatsby-tinacms-remark", "gatsby-tinacms-json",],
+        plugins: [
+          "gatsby-tinacms-git",
+          "gatsby-tinacms-remark",
+          "gatsby-tinacms-json",
+        ],
         sidebar: {
           hidden: process.env.NODE_ENV === "production",
-          position: "displace"
+          position: "displace",
         },
       },
     },
