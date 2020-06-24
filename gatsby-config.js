@@ -1,3 +1,5 @@
+const basicAuth = require("express-basic-auth")
+
 module.exports = {
   siteMetadata: {
     title: `TinaCMS Cloud Editor Tutorial`,
@@ -7,6 +9,15 @@ module.exports = {
     social: {
       twitter: `seansean11`,
     },
+  },
+  developMiddleware: app => {
+    app.use(
+      basicAuth({
+        users: { test: "test" },
+        challenge: true,
+        realm: "your app name",
+      })
+    )
   },
   plugins: [
     {
