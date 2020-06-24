@@ -1,3 +1,4 @@
+require("dotenv").config({ path: ".env.cloud" })
 const basicAuth = require("express-basic-auth")
 
 module.exports = {
@@ -11,13 +12,15 @@ module.exports = {
     },
   },
   developMiddleware: app => {
-    app.use(
-      basicAuth({
-        users: { test: "test" },
-        challenge: true,
-        realm: "your app name",
-      })
-    )
+    if (process.env.ENABLE_AUTH) {
+      app.use(
+        basicAuth({
+          users: { [process.env.AUTH_USER]: process.env.AUTH_PW },
+          challenge: true,
+          realm: "tinacms-cloud-editor-tutorial",
+        })
+      )
+    }
   },
   plugins: [
     {
